@@ -14,6 +14,7 @@ public class OrderYarnDetail {
     private int id;
 
     @ManyToOne(cascade = CascadeType.ALL)
+
     private OrderYarn order;
 
     @ManyToOne(cascade = CascadeType.ALL)

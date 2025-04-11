@@ -118,13 +118,13 @@ public class YarnManagementApplication {
 
 
 
-        System.out.println(yarn1);
-        System.out.println(yarn2);
-        System.out.println(customer1);
-        System.out.println(customer2);
-        System.out.println(order1);
-        System.out.println(employee1.toString());
-        System.out.println(employee2.toString());
+        // System.out.println(yarn1);
+        // System.out.println(yarn2);
+        // System.out.println(customer1);
+        // System.out.println(customer2);
+        // System.out.println(order1);
+        // System.out.println(employee1.toString());
+        // System.out.println(employee2.toString());
 
     }
 

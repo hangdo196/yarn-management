@@ -15,5 +15,4 @@ public class FirstController {
         if(auth != null) return new ResponseEntity<String> ("Dear " + auth.getName() + ", welcome to yarn world and hope you enjoy this journey ^^", HttpStatus.OK);
         return new ResponseEntity<String>("Welcome to yarn world, please create an account to experience more >.<", HttpStatus.OK);
     }
-
 }

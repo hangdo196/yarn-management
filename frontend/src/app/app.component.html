@@ -1,0 +1,18 @@
+<nav class="navbar navbar-light navbar-expand-md">
+  <div class="container-fluid">
+      <a class="navbar-brand" routerLink=""><span><img src="favicon.ico"> Yarn World </span></a>
+      <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbar" data-bs-toggle="collapse" type="button">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar">
+        <ul class="navbar-nav ms-auto mt-2">
+            <li class="nav-item"><a class="nav-link" routerLink="/login">Log In</a></li>
+            <li class="nav-item"><a class="nav-link" routerLink="register">Register</a></li>
+        </ul>
+      </div>
+  </div>
+</nav>
+
+<main class="container-fluid py-5 text-center">
+  <router-outlet></router-outlet>
+</main>

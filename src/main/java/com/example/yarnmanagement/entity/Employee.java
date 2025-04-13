@@ -3,8 +3,6 @@ package com.example.yarnmanagement.entity;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Enumerated;
-import org.springframework.security.core.userdetails.UserDetails;
 
 
 @Entity
@@ -18,6 +16,4 @@ public class Employee extends UserYarnApp {
 
     public Employee() {
     }
-
-
 }

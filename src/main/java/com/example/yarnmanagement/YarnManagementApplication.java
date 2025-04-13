@@ -59,8 +59,6 @@ public class YarnManagementApplication {
         OrderYarn order2 = new OrderYarn();
         OrderYarn order3 = new OrderYarn();
 
-
-
         //One-to-one
         yarn1.setInventory(inventory1);
         inventory1.setYarn(yarn1);
@@ -115,17 +113,12 @@ public class YarnManagementApplication {
         employeeService.saveEmployee(employee2);
 
 
-
-
-
-        System.out.println(yarn1);
-        System.out.println(yarn2);
-        System.out.println(customer1);
-        System.out.println(customer2);
-        System.out.println(order1);
-        System.out.println(employee1.toString());
-        System.out.println(employee2.toString());
-
+        // System.out.println(yarn1);
+        // System.out.println(yarn2);
+        // System.out.println(customer1);
+        // System.out.println(customer2);
+        // System.out.println(order1);
+        // System.out.println(employee1.toString());
+        // System.out.println(employee2.toString());
     }
-
 }

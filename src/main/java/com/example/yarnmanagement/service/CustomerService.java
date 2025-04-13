@@ -6,15 +6,9 @@ import com.example.yarnmanagement.exception.UniqueConstraintViolationException;
 import com.example.yarnmanagement.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.argon2.Argon2PasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import java.text.MessageFormat;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class CustomerService {
@@ -51,8 +45,7 @@ public class CustomerService {
         }
     }
 
-    /*public Customer findCustomerByUsername (String username) {
+    public Customer findCustomerByUsername (String username) {
         return customerRepository.findCustomerByUsername(username).orElseThrow(() -> new IllegalArgumentException("User doesn't exist"));
-    }*/
-
+    }
 }

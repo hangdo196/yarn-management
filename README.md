@@ -1,5 +1,9 @@
 # Projekt Yarn App
 
+## BACKEND
+### Maven
+Project build tool
+
 ### SPRINGBOOT
 framework for java simplifies the development of stand-alone, production-ready Spring applications. It eliminates the need for complex configurations and allows developers to focus on writing business logic.
 
@@ -13,6 +17,7 @@ A REST API (Representational State Transfer Application Programming Interface) i
 - Frontend with Angular
 - Containerize the application with Docker
 
+## FRONTEND
 ### Angular
 
 ##### Module 

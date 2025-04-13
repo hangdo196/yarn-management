@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+    font-family: Lucida, monospace;
+    color: black;
+}
+
+/* Size for brand */
+nav .navbar-brand
+{
+    font-size: xx-large;
+}
+
+.navbar {
+    background-color: #e3f2fd;
+}
+
+.containercard {
+    position: relative;
+}

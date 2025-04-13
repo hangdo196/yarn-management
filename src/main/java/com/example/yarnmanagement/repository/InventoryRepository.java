@@ -1,7 +1,6 @@
 package com.example.yarnmanagement.repository;
 
 import com.example.yarnmanagement.entity.Inventory;
-import com.example.yarnmanagement.entity.Yarn;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

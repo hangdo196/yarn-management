@@ -9,7 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.Map;
 
 @RestController
@@ -53,12 +52,8 @@ public class CustomerController {
         return new ResponseEntity<String>(HttpStatus.OK);
     }
 
-
-    /*@GetMapping("/customers/{username}")
+    @GetMapping("/customers/{username}")
     public ResponseEntity<?> findCustomerByUsername (@PathVariable String username) {
         return new ResponseEntity<Customer>(customerService.findCustomerByUsername(username), HttpStatus.OK);
-    }*/
-
-
-
+    }
 }

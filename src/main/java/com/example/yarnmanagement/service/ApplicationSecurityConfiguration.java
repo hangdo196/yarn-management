@@ -13,13 +13,10 @@ import com.nimbusds.jose.proc.SecurityContext;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authorization.AuthorizationDecision;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.argon2.Argon2PasswordEncoder;
 import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.security.oauth2.jwt.JwtEncoder;
@@ -30,8 +27,6 @@ import org.springframework.security.oauth2.server.resource.authentication.JwtGra
 import org.springframework.security.oauth2.server.resource.web.BearerTokenAuthenticationEntryPoint;
 import org.springframework.security.oauth2.server.resource.web.access.BearerTokenAccessDeniedHandler;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.config.annotation.web.configurers.oauth2.server.resource.OAuth2ResourceServerConfigurer;
-import org.springframework.security.web.access.intercept.RequestAuthorizationContext;
 
 
 import java.security.interfaces.RSAPrivateKey;
@@ -50,34 +45,34 @@ public class ApplicationSecurityConfiguration {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .authorizeHttpRequests()
+            .authorizeHttpRequests(authorize -> authorize
                 .requestMatchers("/yarn/welcoming").permitAll()
                 .requestMatchers("/yarn/employees/**").hasAuthority(Role.AdminManager.name())
-                //.requestMatchers("/yarn/employees/{id}").hasRole(Role.Employee.name())
-                .anyRequest().authenticated().and()
-                .httpBasic(Customizer.withDefaults())
-                .csrf(AbstractHttpConfigurer::disable)
-                .headers((headers) -> headers.frameOptions().sameOrigin())
-                .sessionManagement((session) -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .exceptionHandling((exceptions) -> exceptions
-                        .authenticationEntryPoint(new BearerTokenAuthenticationEntryPoint())
-                        .accessDeniedHandler(new BearerTokenAccessDeniedHandler())
-                )
-                .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt)
-                .oauth2ResourceServer().jwt().jwtAuthenticationConverter(authenticationConverter());
-
+                .anyRequest().authenticated()
+            )
+            .httpBasic(Customizer.withDefaults())
+            .csrf(AbstractHttpConfigurer::disable)
+            .headers(headers -> headers.frameOptions(frame -> frame.sameOrigin()))
+            .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+            .exceptionHandling(exceptions -> exceptions
+                .authenticationEntryPoint(new BearerTokenAuthenticationEntryPoint())
+                .accessDeniedHandler(new BearerTokenAccessDeniedHandler())
+            )
+            .oauth2ResourceServer(oauth2 -> oauth2
+                .jwt(jwt -> jwt.jwtAuthenticationConverter(authenticationConverter()))
+            );
         return http.build();
     }
 
-    private String getUsernameFromAuthentication(Authentication authentication) {
-        // Nếu authentication là instance của UserDetails (ví dụ như UsernamePasswordAuthenticationToken)
-        if (authentication.getPrincipal() instanceof UserDetails) {
-            return ((UserDetails) authentication.getPrincipal()).getUsername();
-        }
+    // private String getUsernameFromAuthentication(Authentication authentication) {
+    //     // Nếu authentication là instance của UserDetails (ví dụ như UsernamePasswordAuthenticationToken)
+    //     if (authentication.getPrincipal() instanceof UserDetails) {
+    //         return ((UserDetails) authentication.getPrincipal()).getUsername();
+    //     }
 
-        // Nếu không phải, chúng ta sử dụng getName() để lấy tên người dùng
-        return authentication.getName();
-    }
+    //     // Nếu không phải, chúng ta sử dụng getName() để lấy tên người dùng
+    //     return authentication.getName();
+    // }
 
 
     @Bean

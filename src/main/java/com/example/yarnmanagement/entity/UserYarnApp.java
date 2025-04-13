@@ -5,12 +5,9 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
 import java.util.Collection;
 import java.util.Collections;
 
@@ -45,14 +42,12 @@ public class UserYarnApp implements UserDetails {
     //{8,} at least 8 long
     private String password;
 
-
     @NotBlank
     @Column(unique = true)
     private String username;
 
     @Enumerated
     private Role role;
-
 
     public UserYarnApp(String firstName, String lastName, String email, String username, String password) {
         this.firstName = firstName;
@@ -62,8 +57,7 @@ public class UserYarnApp implements UserDetails {
         this.username = username;
     }
 
-    public UserYarnApp() {
-    }
+    public UserYarnApp() {}
 
     public int getId() {
         return id;
@@ -144,13 +138,9 @@ public class UserYarnApp implements UserDetails {
         return Collections.singletonList(simpleGrantedAuthority);
     }
 
-
     public void promoteToAdmin() {
         this.role = Role.AdminManager;
     }
-
-
-
 
     public void setUsername(String username) {
         this.username = username;

@@ -1,6 +1,14 @@
-<div>
-    <h1>Register</h1>
-    <button (click)="registerUser()">Register</button>
+<div routerlink="register">
+    <div class="mb-3">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="username" placeholder="Username" type="text">
+    </div>
+    <div class="mb-3">
+        <input class="form-control mx-auto w-auto" name="password" placeholder="Password" type="password">
+    </div>
+    <div class="mb-3">
+        <input class="form-control mx-auto w-auto" name="confirmation" placeholder="Password (again)" type="password">
+    </div>
+    <button class="btn btn-primary" type="submit" (click)="registerUser()">Register</button>
     
-    <p *ngIf="registerMessage">{{ registerMessage }}</p>
+    <p *ngIf="registerMessage" style="margin-top: 2rem">{{ registerMessage }}</p>
 </div>

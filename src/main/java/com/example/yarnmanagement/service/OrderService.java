@@ -1,6 +1,5 @@
 package com.example.yarnmanagement.service;
 
-import com.example.yarnmanagement.entity.Customer;
 import com.example.yarnmanagement.entity.OrderYarn;
 import com.example.yarnmanagement.entity.OrderStatus;
 import com.example.yarnmanagement.entity.OrderYarnDetail;
@@ -8,9 +7,7 @@ import com.example.yarnmanagement.exception.EntityNotFoundException;
 import com.example.yarnmanagement.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class OrderService {

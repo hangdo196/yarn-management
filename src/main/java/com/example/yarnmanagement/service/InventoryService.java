@@ -1,23 +1,20 @@
 package com.example.yarnmanagement.service;
 
 import com.example.yarnmanagement.entity.Inventory;
-import com.example.yarnmanagement.entity.Yarn;
 import com.example.yarnmanagement.exception.EntityNotFoundException;
 import com.example.yarnmanagement.repository.InventoryRepository;
-import com.example.yarnmanagement.repository.YarnRepository;
+// import com.example.yarnmanagement.repository.YarnRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class InventoryService {
     @Autowired
     private InventoryRepository inventoryRepository;
 
-    @Autowired
-    private YarnRepository yarnRepository;
+    // @Autowired
+    // private YarnRepository yarnRepository;
 
     public Inventory saveInventory (Inventory inventory) {
         return inventoryRepository.save(inventory);

@@ -6,12 +6,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class RegisterService {
-
-  private apiUrl = 'http://localhost:8080/yarn/welcoming'; 
+  private apiUrl = '/api/yarn/welcoming'; 
 
   constructor(private http: HttpClient) {}
 
   register(): Observable<any> {
-    return this.http.get<any>(this.apiUrl);
+    return this.http.get(this.apiUrl, { responseType: 'text' });
   }
 }

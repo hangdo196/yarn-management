@@ -39,5 +39,4 @@ public class TokenController {
                 .build();
         return this.encoder.encode(JwtEncoderParameters.from(claims)).getTokenValue();
     }
-
 }
